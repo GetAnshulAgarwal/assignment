@@ -5,84 +5,94 @@ class DeliverySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double textScaleFactor = MediaQuery.of(context).textScaleFactor;
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(screenWidth * 0.04),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Delivery Address Input
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 "DELIVER TO: Mumbai",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: screenWidth * 0.04),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: screenHeight * 0.02),
               TextField(
                 decoration: InputDecoration(
                   hintText: "4000001",
-                  border: const OutlineInputBorder(),
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                  border: OutlineInputBorder(),
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: screenHeight * 0.01,
+                    horizontal: screenWidth * 0.02,
+                  ),
                   suffixIcon: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.zero, // Rectangular shape
+                        borderRadius: BorderRadius.zero,
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       "CHECK",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Colors.white, fontSize: screenWidth * 0.035),
                     ),
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 20),
-
-          // Cash On Delivery and Standard Delivery
-          const Row(
+          SizedBox(height: screenHeight * 0.03),
+          Row(
             children: [
-              Icon(Icons.credit_card, size: 18, color: Colors.grey),
-              SizedBox(width: 8),
-              Text("Cash On Delivery Available",
-                  style: TextStyle(fontSize: 14)),
+              Icon(Icons.credit_card,
+                  size: 18 * textScaleFactor, color: Colors.grey),
+              SizedBox(width: screenWidth * 0.02),
+              Text(
+                "Cash On Delivery Available",
+                style: TextStyle(fontSize: screenWidth * 0.035),
+              ),
             ],
           ),
-          const SizedBox(height: 8),
-          const Row(
+          SizedBox(height: screenHeight * 0.01),
+          Row(
             children: [
-              Icon(Icons.local_shipping, size: 18, color: Colors.grey),
-              SizedBox(width: 8),
+              Icon(Icons.local_shipping,
+                  size: 18 * textScaleFactor, color: Colors.grey),
+              SizedBox(width: screenWidth * 0.02),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "Standard Delivery:",
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: screenWidth * 0.035,
+                        fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "Free Shipping on this product. Save ₹99\nEstimated Delivery by Tue, 26 Mar - Thu 28 Mar",
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style: TextStyle(
+                        fontSize: screenWidth * 0.03, color: Colors.grey),
                   ),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 16),
-          const Divider(color: Colors.grey),
-
-          // Collapsible Sections
+          SizedBox(height: screenHeight * 0.02),
+          Divider(color: Colors.grey),
           _buildCollapsibleSection("About the Product"),
-          const Divider(color: Colors.grey),
+          Divider(color: Colors.grey),
           _buildCollapsibleSection("Wash Care Instructions"),
-          const Divider(color: Colors.grey),
+          Divider(color: Colors.grey),
           _buildCollapsibleSection("Service & Policy"),
-          const Divider(color: Colors.grey),
+          Divider(color: Colors.grey),
         ],
       ),
     );
@@ -92,7 +102,7 @@ class DeliverySection extends StatelessWidget {
     return ExpansionTile(
       title: Text(
         title,
-        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
       ),
       children: [
         Padding(

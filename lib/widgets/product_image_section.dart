@@ -8,21 +8,23 @@ class ProductImageSection extends StatefulWidget {
 }
 
 class _ProductImageSectionState extends State<ProductImageSection> {
-  int currentIndex = 0; // Current index for the carousel
+  int currentIndex = 0;
   final List<String> images = [
     'assets/imag.png',
     'assets/imag.png',
     'assets/imag.png',
     'assets/imag.png',
-  ]; // List of image assets
+  ];
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
-        // Carousel (Image Slider)
         SizedBox(
-          height: 400,
+          height: screenHeight * 0.45,
           child: PageView.builder(
             itemCount: images.length,
             onPageChanged: (index) {
@@ -33,21 +35,20 @@ class _ProductImageSectionState extends State<ProductImageSection> {
             itemBuilder: (context, index) {
               return Image.asset(
                 images[index],
-                width: double.infinity,
+                width: screenWidth,
                 fit: BoxFit.cover,
               );
             },
           ),
         ),
-        const SizedBox(height: 16),
-        // Carousel Indicator
+        SizedBox(height: screenHeight * 0.02),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(images.length, (index) {
             return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              width: 12,
-              height: 12,
+              margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.01),
+              width: screenWidth * 0.03,
+              height: screenWidth * 0.03,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: currentIndex == index ? Colors.pink : Colors.grey[300],

@@ -5,19 +5,23 @@ class ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    double fontSize = width < 600 ? 14 : 16;
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(width * 0.04),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Customer Reviews(800)',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: fontSize * 1.25,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: height * 0.01),
           Row(
             children: [
               Row(
@@ -27,18 +31,18 @@ class ReviewCard extends StatelessWidget {
               const Icon(Icons.star_border, color: Colors.pink),
             ],
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: height * 0.01),
+          Text(
             'Highly Recommended',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: fontSize * 1.2,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: height * 0.01),
+          Text(
             'Ut aliquet venenatis elit, at condimentum mi bibendum non. Sed vitae dui quis neque fermentum tincidunt. Quisque id aliquam magna. Proin sit amet sagittis sem...',
-            style: TextStyle(fontSize: 14),
+            style: TextStyle(fontSize: fontSize),
           ),
           TextButton(
             onPressed: () {},
@@ -47,12 +51,12 @@ class ReviewCard extends StatelessWidget {
               style: TextStyle(color: Colors.pink),
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: height * 0.02),
           Row(
             children: [
               Container(
-                width: 100,
-                height: 100,
+                width: width * 0.2,
+                height: width * 0.2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: const DecorationImage(
@@ -61,10 +65,10 @@ class ReviewCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: width * 0.02),
               Container(
-                width: 100,
-                height: 100,
+                width: width * 0.2,
+                height: width * 0.2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: const DecorationImage(
@@ -75,26 +79,26 @@ class ReviewCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 16),
-          const Text(
+          SizedBox(height: height * 0.02),
+          Text(
             'Sofia',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: fontSize * 1.2,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 4),
-          const Row(
+          SizedBox(height: height * 0.01),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  Icon(Icons.verified, size: 16, color: Colors.pink),
-                  SizedBox(width: 4),
+                  const Icon(Icons.verified, size: 16, color: Colors.pink),
+                  SizedBox(width: width * 0.02),
                   Text(
                     'Verified Buyer, 20th July, 2024',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: fontSize * 0.8,
                       color: Colors.grey,
                     ),
                   ),
@@ -104,28 +108,30 @@ class ReviewCard extends StatelessWidget {
                 children: [
                   Text(
                     'Helpful?',
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style:
+                        TextStyle(fontSize: fontSize * 0.8, color: Colors.grey),
                   ),
-                  SizedBox(width: 4),
-                  Icon(Icons.thumb_up_alt_outlined,
+                  SizedBox(width: width * 0.02),
+                  const Icon(Icons.thumb_up_alt_outlined,
                       size: 16, color: Colors.pink),
-                  SizedBox(width: 4),
+                  SizedBox(width: width * 0.02),
                   Text(
                     '4',
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style:
+                        TextStyle(fontSize: fontSize * 0.8, color: Colors.grey),
                   ),
-                  SizedBox(width: 8),
-                  Icon(Icons.more_vert_sharp, color: Colors.black),
+                  SizedBox(width: width * 0.02),
+                  const Icon(Icons.more_vert_sharp, color: Colors.black),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 25),
+          SizedBox(height: height * 0.02),
           const Divider(
             color: Colors.grey,
             thickness: 1.0,
           ),
-          const SizedBox(height: 25),
+          SizedBox(height: height * 0.02),
           Row(
             children: [
               Row(
@@ -135,18 +141,18 @@ class ReviewCard extends StatelessWidget {
               const Icon(Icons.star_border, color: Colors.pink),
             ],
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: height * 0.01),
+          Text(
             'Nice Buy',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: fontSize * 1.2,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: height * 0.01),
+          Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  tempor incididun...',
-            style: TextStyle(fontSize: 14),
+            style: TextStyle(fontSize: fontSize),
           ),
           TextButton(
             onPressed: () {},
@@ -155,26 +161,26 @@ class ReviewCard extends StatelessWidget {
               style: TextStyle(color: Colors.pink),
             ),
           ),
-          const SizedBox(height: 16),
-          const Text(
+          SizedBox(height: height * 0.02),
+          Text(
             'Esther Howard',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: fontSize * 1.2,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 4),
-          const Row(
+          SizedBox(height: height * 0.01),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  Icon(Icons.verified, size: 16, color: Colors.pink),
-                  SizedBox(width: 4),
+                  const Icon(Icons.verified, size: 16, color: Colors.pink),
+                  SizedBox(width: width * 0.02),
                   Text(
                     'Verified Buyer, 20th July, 2024',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: fontSize * 0.8,
                       color: Colors.grey,
                     ),
                   ),
@@ -184,28 +190,30 @@ class ReviewCard extends StatelessWidget {
                 children: [
                   Text(
                     'Helpful?',
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style:
+                        TextStyle(fontSize: fontSize * 0.8, color: Colors.grey),
                   ),
-                  SizedBox(width: 4),
-                  Icon(Icons.thumb_up_alt_outlined,
+                  SizedBox(width: width * 0.02),
+                  const Icon(Icons.thumb_up_alt_outlined,
                       size: 16, color: Colors.pink),
-                  SizedBox(width: 4),
+                  SizedBox(width: width * 0.02),
                   Text(
                     '3',
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style:
+                        TextStyle(fontSize: fontSize * 0.8, color: Colors.grey),
                   ),
-                  SizedBox(width: 8),
-                  Icon(Icons.more_vert_sharp, color: Colors.black),
+                  SizedBox(width: width * 0.02),
+                  const Icon(Icons.more_vert_sharp, color: Colors.black),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 25),
+          SizedBox(height: height * 0.02),
           const Divider(
             color: Colors.grey,
             thickness: 1.0,
           ),
-          const SizedBox(height: 25),
+          SizedBox(height: height * 0.02),
           Row(
             children: [
               Row(
@@ -215,18 +223,18 @@ class ReviewCard extends StatelessWidget {
               const Icon(Icons.star_border, color: Colors.pink),
             ],
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: height * 0.01),
+          Text(
             'Splendid Purchase',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: fontSize * 1.2,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: height * 0.01),
+          Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  tempor incididun..',
-            style: TextStyle(fontSize: 14),
+            style: TextStyle(fontSize: fontSize),
           ),
           TextButton(
             onPressed: () {},
@@ -235,26 +243,26 @@ class ReviewCard extends StatelessWidget {
               style: TextStyle(color: Colors.pink),
             ),
           ),
-          const SizedBox(height: 16),
-          const Text(
+          SizedBox(height: height * 0.02),
+          Text(
             'Mary Magdalen,',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: fontSize * 1.2,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 4),
-          const Row(
+          SizedBox(height: height * 0.01),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  Icon(Icons.verified, size: 16, color: Colors.pink),
-                  SizedBox(width: 4),
+                  const Icon(Icons.verified, size: 16, color: Colors.pink),
+                  SizedBox(width: width * 0.02),
                   Text(
                     'Verified Buyer, 20th July, 2024',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: fontSize * 0.8,
                       color: Colors.grey,
                     ),
                   ),
@@ -264,32 +272,34 @@ class ReviewCard extends StatelessWidget {
                 children: [
                   Text(
                     'Helpful?',
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style:
+                        TextStyle(fontSize: fontSize * 0.8, color: Colors.grey),
                   ),
-                  SizedBox(width: 4),
-                  Icon(Icons.thumb_up_alt_outlined,
+                  SizedBox(width: width * 0.02),
+                  const Icon(Icons.thumb_up_alt_outlined,
                       size: 16, color: Colors.pink),
-                  SizedBox(width: 4),
+                  SizedBox(width: width * 0.02),
                   Text(
                     '3',
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style:
+                        TextStyle(fontSize: fontSize * 0.8, color: Colors.grey),
                   ),
-                  SizedBox(width: 8),
-                  Icon(Icons.more_vert_sharp, color: Colors.black),
+                  SizedBox(width: width * 0.02),
+                  const Icon(Icons.more_vert_sharp, color: Colors.black),
                 ],
               ),
             ],
           ),
-          const SizedBox(
-            height: 50.0,
+          SizedBox(
+            height: height * 0.05,
           ),
           Center(
             child: TextButton(
               onPressed: () {},
               style: TextButton.styleFrom(
                 foregroundColor: Colors.black,
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 24.0, vertical: 12.0),
+                padding: EdgeInsets.symmetric(
+                    horizontal: width * 0.08, vertical: height * 0.02),
                 side: const BorderSide(color: Colors.black, width: 2),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(1),

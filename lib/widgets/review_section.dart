@@ -5,8 +5,11 @@ class ReviewPhotosSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(screenWidth * 0.04),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -14,17 +17,17 @@ class ReviewPhotosSection extends StatelessWidget {
             color: Colors.grey,
             thickness: 1.0,
           ),
-          const SizedBox(height: 25.0),
-          const Text(
+          SizedBox(height: screenHeight * 0.03),
+          Text(
             'Review Photos(150)',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: screenWidth * 0.05,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: screenHeight * 0.02),
           SizedBox(
-            height: 120,
+            height: screenHeight * 0.15,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: const [
@@ -39,7 +42,7 @@ class ReviewPhotosSection extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 30.0,
+            height: screenHeight * 0.03,
           ),
           const Divider(
             color: Colors.grey,
@@ -58,9 +61,11 @@ class ReviewPhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      width: 100,
-      height: 100,
+      width: screenWidth * 0.25,
+      height: screenWidth * 0.25,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
         image: DecorationImage(

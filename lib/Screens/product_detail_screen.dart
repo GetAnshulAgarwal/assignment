@@ -14,15 +14,18 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(
-            Icons.arrow_back, // Back arrow icon
-            color: Colors.black, // Color of the icon
+            Icons.arrow_back,
+            color: Colors.black,
           ),
           onPressed: () {
-            Navigator.of(context).pop(); // Navigate back to the previous screen
+            Navigator.of(context).pop();
           },
         ),
         title: const Text(
@@ -50,11 +53,11 @@ class ProductDetailScreen extends StatelessWidget {
           children: [
             ProductImageSection(),
             ProductTitleSection(),
-            const ProductColorSizeSelector(),
-            const DeliverySection(),
+            ProductColorSizeSelector(),
+            DeliverySection(),
             RatingsAndReviewsSection(),
-            const ReviewPhotosSection(),
-            const ReviewCard(),
+            ReviewPhotosSection(),
+            ReviewCard(),
             YouMightAlsoLikeSection(),
           ],
         ),
@@ -74,10 +77,12 @@ class ProductDetailScreen extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 24.0, vertical: 12.0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.06,
+                  vertical: screenHeight * 0.015,
+                ),
                 shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero), // Rectangular shape
+                    borderRadius: BorderRadius.zero),
               ),
               onPressed: () {},
               child: const Text(
@@ -91,10 +96,12 @@ class ProductDetailScreen extends StatelessWidget {
             OutlinedButton(
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(color: Colors.black),
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 24.0, vertical: 12.0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.06,
+                  vertical: screenHeight * 0.015,
+                ),
                 shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero), // Rectangular shape
+                    borderRadius: BorderRadius.zero),
               ),
               onPressed: () {},
               child: const Text(

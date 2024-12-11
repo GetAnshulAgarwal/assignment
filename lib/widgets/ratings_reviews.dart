@@ -5,37 +5,46 @@ class RatingsAndReviewsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(screenWidth * 0.04),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header Section
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 "Ratings & Reviews",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: screenWidth * 0.05,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               TextButton(
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   "Write Review",
-                  style: TextStyle(color: Colors.pink, fontSize: 14),
+                  style: TextStyle(
+                    color: Colors.pink,
+                    fontSize: screenWidth * 0.04,
+                  ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 16),
-
-          // Overall Rating
+          SizedBox(height: screenHeight * 0.02),
           Center(
             child: Column(
               children: [
-                const Text(
+                Text(
                   "4.0/5",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.07,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -44,36 +53,35 @@ class RatingsAndReviewsSection extends StatelessWidget {
                       Icon(
                         Icons.star,
                         color: i < 4 ? Colors.pink : Colors.grey,
-                        size: 20,
+                        size: screenWidth * 0.06,
                       ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                const Text(
+                SizedBox(height: screenHeight * 0.01),
+                Text(
                   "Based on 237 Star Ratings",
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.03,
+                    color: Colors.grey,
+                  ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 24),
-
-          // Divider
-          const Divider(color: Colors.grey),
-
-          // Parameter Ratings
+          SizedBox(height: screenHeight * 0.03),
+          Divider(color: Colors.grey),
           GridView.count(
             crossAxisCount: 2,
             shrinkWrap: true,
-            crossAxisSpacing: 50,
-            mainAxisSpacing: 25,
+            crossAxisSpacing: screenWidth * 0.05,
+            mainAxisSpacing: screenHeight * 0.03,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              _buildCircularIndicator("Sizing", "True to Size", 4.0),
-              _buildCircularIndicator("Quality", "Out of 5", 4.5),
-              _buildCircularIndicator("Fit", "Out of 5", 4.1),
+              _buildCircularIndicator("Sizing", "True to Size", 4.0, context),
+              _buildCircularIndicator("Quality", "Out of 5", 4.5, context),
+              _buildCircularIndicator("Fit", "Out of 5", 4.1, context),
               _buildCircularIndicator(
-                  "Would Recommend", "Total 160 Recommendations", 87.0,
+                  "Would Recommend", "Total 160 Recommendations", 87.0, context,
                   isPercentage: true),
             ],
           ),
@@ -82,8 +90,11 @@ class RatingsAndReviewsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildCircularIndicator(String title, String subtitle, double value,
+  Widget _buildCircularIndicator(
+      String title, String subtitle, double value, BuildContext context,
       {bool isPercentage = false}) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -91,8 +102,8 @@ class RatingsAndReviewsSection extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             SizedBox(
-              height: 50,
-              width: 50,
+              height: screenWidth * 0.15,
+              width: screenWidth * 0.15,
               child: CircularProgressIndicator(
                 value: isPercentage ? value / 100 : value / 5,
                 color: Colors.pink,
@@ -102,18 +113,27 @@ class RatingsAndReviewsSection extends StatelessWidget {
             ),
             Text(
               isPercentage ? "${value.toInt()}%" : value.toString(),
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: screenWidth * 0.04,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: screenWidth * 0.03),
         Text(
           title,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: screenWidth * 0.04,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         Text(
           subtitle,
-          style: const TextStyle(fontSize: 12, color: Colors.grey),
+          style: TextStyle(
+            fontSize: screenWidth * 0.03,
+            color: Colors.grey,
+          ),
           textAlign: TextAlign.center,
         ),
       ],

@@ -9,99 +9,103 @@ class ProductColorSizeSelector extends StatefulWidget {
 }
 
 class _ProductColorSizeSelectorState extends State<ProductColorSizeSelector> {
-  String selectedSize = 'M'; // Default selected size
+  String selectedSize = 'M';
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(screenWidth * 0.04),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'COLOR: Persian Rose',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            style: TextStyle(
+              fontSize: screenWidth * 0.04,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-          const SizedBox(height: 8),
-          const Row(
+          SizedBox(height: screenHeight * 0.02),
+          Row(
             children: [
               CircleAvatar(
                 backgroundColor: Colors.pink,
-                radius: 15,
+                radius: screenWidth * 0.07,
                 child: Icon(
                   Icons.check,
                   color: Colors.white,
-                  size: 18, // Adjust the size of the tick as needed
+                  size: screenWidth * 0.05,
                 ),
               ),
-              SizedBox(width: 8),
+              SizedBox(width: screenWidth * 0.04),
               CircleAvatar(
                 backgroundColor: Colors.black,
-                radius: 15,
+                radius: screenWidth * 0.07,
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: screenHeight * 0.02),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'SIZE: Medium',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                  fontSize: screenWidth * 0.04,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              const Spacer(), // This will push the SIZE GUIDE to the far end
+              Spacer(),
               GestureDetector(
-                onTap: () {
-                  // Add your onTap functionality here
-                },
-                child: const Text(
+                onTap: () {},
+                child: Text(
                   'SIZE GUIDE',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: screenWidth * 0.03,
                     fontWeight: FontWeight.w400,
-                    color: Colors
-                        .pinkAccent, // Adjust the color to match your theme
+                    color: Colors.pinkAccent,
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: screenHeight * 0.02),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: ['XS', 'S', 'M', 'L', 'XL']
                 .map(
                   (size) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          selectedSize = size; // Update selected size on tap
+                          selectedSize = size;
                         });
                       },
                       child: Container(
-                        width: 40, // Square dimensions
-                        height: 40,
+                        width: screenWidth * 0.1,
+                        height: screenWidth * 0.1,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.white38, // Default background
-                          borderRadius: BorderRadius.circular(
-                              4), // Slightly rounded corners
+                          color: Colors.white38,
+                          borderRadius: BorderRadius.circular(4),
                           border: Border.all(
                             color: selectedSize == size
                                 ? Colors.black
-                                : Colors.grey, // Highlight selected border
-                            width: selectedSize == size
-                                ? 2
-                                : 1, // Thicker border for selected
+                                : Colors.grey,
+                            width: selectedSize == size ? 2 : 1,
                           ),
                         ),
                         child: Text(
                           size,
-                          style: const TextStyle(
-                            fontSize: 16,
+                          style: TextStyle(
+                            fontSize: screenWidth * 0.04,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black, // Black text
+                            color: Colors.black,
                           ),
                         ),
                       ),
